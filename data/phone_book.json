@@ -1,5 +1,197 @@
 [
   {
+    "name":   "7th Acoustics",
+    "phones": [
+        {
+            "name": "Asteria",
+            "file": [
+                "7A Asteria AET07"
+            ],
+            "suffix": [
+                "(tips: AET07)"
+            ],
+            "reviewScore": "4.5",
+            "reviewLink": "",
+            "price": "$3800",
+            "shopLink": ""
+        }
+    ]
+},
+{
+  "name":   "7Hz",
+  "phones": [
+      {
+          "name": "Zero:2",
+          "file": [
+              "7Hz x Crinacle Zero2"
+          ],
+          "suffix": [
+              ""
+          ],
+          "reviewScore": "2.5",
+          "reviewLink": "",
+          "price": "$24.99",
+          "shopLink": ""
+      }
+  ]
+},
+{
+  "name":   "Truthear",
+  "phones": [
+      {
+          "name": "Pure",
+          "file": [
+              "Truthear Pure Black (M)",
+              "Truthear Pure Light Grey (M)",
+              "Truthear Pure Foam"
+          ],
+          "suffix": [
+              "(tips: Black Stock)",
+              "(tips: Light Grey Stock)",
+              "(tips: Foam Stock)"
+          ],
+          "reviewScore": "4",
+          "reviewLink": "",
+          "price": "$89.99",
+          "shopLink": "https://truthear.com/products/pure"
+      }
+  ]
+},
+{
+  "name":   "Kiwi Ears",
+  "phones": [
+      {
+          "name": "Etude",
+          "file": [
+              "Kiwi Ears Etude Black (M)",
+              "Kiwi Ears Etude GreyRed (M)",
+              "Kiwi Ears Etude White (S)"
+          ],
+          "suffix": [
+              "(tips: Black Stock)",
+              "(tips: Grey/Red Stock)",
+              "(tips: White Stock)"
+          ],
+          "reviewScore": "1.5",
+          "reviewLink": "",
+          "price": "$119.00",
+          "shopLink": "https://kiwiears.com/products/kiwi-ears-etude"
+      }
+  ]
+},
+{
+  "name":   "Subtonic",
+  "phones": [
+      {
+          "name": "STORM",
+          "file": [
+              "Subtonic STORM 69",
+              "Subtonic STORM 69 Propeller"
+          ],
+          "suffix": [
+              "S/N 69 (tips: Stock)",
+              "S/N 69 (tips: Propeller)"
+          ],
+          "reviewScore": "4.75",
+          "reviewLink": "",
+          "price": "$6500",
+          "shopLink": ""
+      }
+  ]
+},
+{
+  "name":   "ddHiFi",
+  "phones": [
+      {
+          "name": "Memory (E13P)",
+          "file": [
+              "ddHiFi Memory E13P AET07 broken"
+          ],
+          "suffix": [
+              "(tips: AET07) broken"
+          ],
+          "reviewScore": "",
+          "reviewLink": "",
+          "price": "$170",
+          "shopLink": ""
+      }
+  ]
+},
+{
+  "name":   "Grado",
+  "phones": [
+      {
+          "name": "GR10E",
+          "file": [
+              "Grado GR10E AET07"
+          ],
+          "suffix": [
+              "(tips: AET07)"
+          ],
+          "reviewScore": "",
+          "reviewLink": "",
+          "price": "",
+          "shopLink": ""
+      }
+  ]
+},
+{
+  "name":   "Letshuoer",
+  "phones": [
+      {
+          "name": "C12 2023",
+          "file": [
+              "Letshuoer C12 2023 AET07"
+          ],
+          "suffix": [
+              "(tips: AET07)"
+          ],
+          "reviewScore": "3.75",
+          "reviewLink": "",
+          "price": "",
+          "shopLink": ""
+      }
+  ]
+},
+{
+  "name":   "Rhapsodio",
+  "phones": [
+      {
+          "name": "Master",
+          "file": [
+              "Rhapsodio Master AET07"
+          ],
+          "suffix": [
+              "(tips: AET07)"
+          ],
+          "reviewScore": "1",
+          "reviewLink": "",
+          "price": "$30000",
+          "shopLink": ""
+      }
+  ]
+},
+{
+  "name":   "Example",
+  "phones": [
+      {
+          "name": "Poop",
+          "file": [
+              "a",
+              "b"
+          ],
+          "suffix": [
+              "yeet",
+              "(tips:)"
+          ],
+          "reviewScore": "1",
+          "reviewLink": "",
+          "price": "$1234",
+          "shopLink": ""
+      }
+  ]
+},
+  {
     "name": "AudioSense",
     "phones": [
       {
