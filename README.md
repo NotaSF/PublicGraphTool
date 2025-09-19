@@ -1,5 +1,5 @@
 # Demo Page
-https://graphtool-demo.harutohiroki.com/
+notasf.github.io/PublicGraphTool/
 
 # Changes
 - Added Equalizer (cred to Rohsa)
@@ -162,3 +162,4 @@ reach me by the email in my Github profile and the [LICENSE](LICENSE).
 I can sometimes be found on
 [Crin's Discord server](https://discord.gg/CtTqcCb) where I am
 creatively named Marshall.
+
