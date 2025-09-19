@@ -1,7 +1,7 @@
 
 /* Primary color theme */
 :root {
-    --accent-color: hsl(0, 0%, 0%);
+    --accent-color: rgb(135 62 181);
     --accent-color-contrast: hsl(0, 0%, 55%);
 
     --background-color: hsl(0, 0%, 96%);
@@ -21,16 +21,17 @@
     --scrollbar-color: 255,255,255;
     --scrollbar-accent: 0,0,0;
     
-    --header-color: hsl(215, 20%, 10%);
+    --header-color: rgb(135 62 181);
     --header-links-color: hsl(0, 0%, 100%);
     --header-menu-icon-color: hsl(0, 0%, 100%);
     
     --logo-filter: invert(1.0);
     --svg-filter: none;
+    --wiggle-filter: none;
 }
 
 body.theme-dark {
-    --accent-color: hsl(0, 0%, 100%);
+    --accent-color: rgb(135 62 181);
     --accent-color-contrast: hsl(0, 0%, 50%);
 
     --background-color: hsl(0, 0%, 6%);
@@ -40,8 +41,8 @@ body.theme-dark {
 
     --background-color-inputs: hsl(0, 0%, 15%);
 
-    --font-color-primary: hsl(0, 0%, 80%);
-    --font-color-secondary: hsl(0, 0%, 0%);
+    --font-color-primary: hsl(0deg 0% 100%);
+    --font-color-secondary: hsl(0deg 0% 100%);
     --font-color-inputs: hsl(0, 0%, 60%);
 
     --font-primary: 'Open Sans', sans-serif;
@@ -50,12 +51,13 @@ body.theme-dark {
     --scrollbar-color: 0,0,0;
     --scrollbar-accent: 255,255,255;
 
-    --header-color: hsl(0, 0%, 0%);
+    --header-color: rgb(135 62 181);
     --header-links-color: hsl(0, 0%, 100%);
     --header-menu-icon-color: hsl(0, 0%, 100%);
     
     --logo-filter: invert(1.0);
-    --svg-filter: invert(1);
+    --svg-filter: none;
+    --wiggle-filter: invert(1.0);
 }
 
 body.theme-contrast {
@@ -83,8 +85,9 @@ body.theme-contrast {
     --header-links-color: hsl(0, 0%, 100%);
     --header-menu-icon-color: hsl(0, 0%, 100%);
     
-    --logo-filter: invert(1.0);
+    --logo-filter: none;
     --svg-filter: none;
+    --wiggle-filter: none;
 }
 
 /***** Squiglink site address *****/
