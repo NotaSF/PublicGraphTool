@@ -1,10 +1,10 @@
 // Configuration options
-const init_phones = ["Haruto 2024 Target", "AudioSense DT200"],// Optional. Which graphs to display on initial load. Note: Share URLs will override this set
+const init_phones = ["Generic JM-1 Target", "7A Asteria AET07"],// Optional. Which graphs to display on initial load. Note: Share URLs will override this set
       DIR = "data/",                                // Directory where graph files are stored
       default_channels = ["L","R"],                 // Which channels to display. Avoid javascript errors if loading just one channel per phone
-      default_normalization = "dB",                 // Sets default graph normalization mode. Accepts "dB" or "Hz"
+      default_normalization = "Hz",                 // Sets default graph normalization mode. Accepts "dB" or "Hz"
       default_norm_db = 60,                         // Sets default dB normalization point
-      default_norm_hz = 630,                        // Sets default Hz normalization point (500Hz is recommended by IEC)
+      default_norm_hz = 632,                        // Sets default Hz normalization point (500Hz is recommended by IEC)
       max_channel_imbalance = 5,                    // Channel imbalance threshold to show ! in the channel selector
       alt_layout = true,                            // Toggle between classic and alt layouts
       alt_sticky_graph = true,                      // If active graphs overflows the viewport, does the graph scroll with the page or stick to the viewport?
@@ -15,8 +15,8 @@ const init_phones = ["Haruto 2024 Target", "AudioSense DT200"],// Optional. Whic
       alt_augment = true,                           // Display augment card in phone list, e.g. review sore, shop link
       site_url = '/',                               // URL of your graph "homepage"
       share_url = true,                             // If true, enables shareable URLs
-      watermark_text = "CrinGraph",                 // Optional. Watermark appears behind graphs
-      watermark_image_url = "assets/images/haruto.svg", // Optional. If image file is in same directory as config, can be just the filename
+      watermark_text = "",                 // Optional. Watermark appears behind graphs
+      watermark_image_url = "assets/images/nota.png", // Optional. If image file is in same directory as config, can be just the filename
       rig_description = "clone IEC 711",            // Optional. Labels the graph with a description of the rig used to make the measurement, e.g. "clone IEC 711"
       page_title = "CrinGraph",                     // Optional. Appended to the page title if share URLs are enabled
       page_description = "View and compare frequency response graphs for earphones",
@@ -40,7 +40,8 @@ const init_phones = ["Haruto 2024 Target", "AudioSense DT200"],// Optional. Whic
 
 // Specify which targets to display
 const targets = [
-    { type:"Reference",  files:["Haruto 2024","Haruto 2021"] },
+//    { type:"Reference",  files:["Haruto 2024","Haruto 2021"] },
+    { type:"Default",    files:["Generic JM-1"] },
     { type:"Neutral",    files:["KEMAR DF","IEF Neutral 2023","Etymotic"] },
     { type:"Reviewer",   files:["Antdroid","Banbeucmas","HBB","Precogvision","Super Review 22","Timmy","VSG"] },
     { type:"Preference", files:["Harman IE 2019v2","Harman IE 2017v2","AutoEQ","Rtings","Sonarworks"] }
@@ -53,15 +54,15 @@ const  preference_bounds_name = "Bounds",              // Preference bounds name
        allowSquigDownload = false,                     // If true, allows download of measurement data
        // PHONE_BOOK = "phone_book.json",              // Path to phone book JSON file         /* UNCOMMENT THIS IF YOU WANT TO MOVE PHONEBOOK OUTSIDE AGAIN */
        default_y_scale = "40db",                       // Default Y scale; values: ["20db", "30db", "40db", "50db", "crin"]
-       default_DF_name = "KEMAR DF",                   // Default RAW DF name
+       default_DF_name = "Generic JM-1",                   // Default RAW DF name
        dfBaseline = true,                              // If true, DF is used as baseline when custom df tilt is on
-       default_bass_shelf = 8,                         // Default Custom DF bass shelf value
-       default_tilt = -0.8,                            // Default Custom DF tilt value
+       default_bass_shelf = 3,                         // Default Custom DF bass shelf value
+       default_tilt = -1,                            // Default Custom DF tilt value
        default_ear = 0,                                // Default Custom DF ear gain value
        default_treble = 0,                             // Default Custom DF treble gain value
-       tiltableTargets = ["KEMAR DF"],                 // Targets that are allowed to be tilted
-       compTargets = ["KEMAR DF"],                     // Targets that are allowed to be used for compensation
-       allowCreatorSupport = true;                     // Allow the creator to have a button top right to support them
+       tiltableTargets = ["KEMAR DF","Generic JM-1"],                 // Targets that are allowed to be tilted
+       compTargets = ["KEMAR DF","Generic JM-1"],                     // Targets that are allowed to be used for compensation
+       allowCreatorSupport = false;                     // Allow the creator to have a button top right to support them
 
 
 const harmanFilters = [
@@ -84,22 +85,22 @@ const harmanFilters = [
 function watermark(svg) {
     let wm = svg.append("g")
         .attr("transform", "translate("+(pad.l+W/2)+","+(pad.t+H/2-20)+")")
-        .attr("opacity",0.2);
+        .attr("opacity",0.35);
     
     if ( watermark_image_url ) {
         wm.append("image")
-            .attrs({id:'logo', x:-64, y:-64, width:128, height:128, "xlink:href":watermark_image_url, "class":"graph_logo"});
+            .attrs({id:'logo', x:-125, y:-100, width:250, height:250, "xlink:href":watermark_image_url, "class":"graph_logo"});
     }
     
     if ( watermark_text ) {
         wm.append("text")
-            .attrs({id:'wtext', x:0, y:80, "font-size":28, "text-anchor":"middle", "class":"graph-name"})
+            .attrs({id:'wtext', x:0, y:100, "font-size":28, "text-anchor":"middle", "class":"graph-name"})
             .text(watermark_text);
     }
     
     if ( rig_description ) {
         wm.append("text")
-            .attrs({x:380, y:-134, "font-size":8, "text-anchor":"end", "class":"rig-description", "style": "filter: var(--svg-filter);"})
+            .attrs({x:380, y:-134, "font-size":8, "text-anchor":"end", "class":"rig-description", "style": "filter: var(--wiggle-filter);"})
             .text("Measured on: " + rig_description);
     }
     
@@ -107,11 +108,11 @@ function watermark(svg) {
         .attr("opacity",0.2);
     
     wmSq.append("image")
-        .attrs({x:652, y:254, width:100, height:94, "class":"wm-squiglink-logo", "xlink:href":"assets/images/squiglink-giggle.svg"});
+        .attrs({x:652, y:254, width:100, height:94, "class":"wm-squiglink-logo", "xlink:href":"assets/images/squiglink-giggle.svg", "style": "filter: var(--wiggle-filter);"});
     
     wmSq.append("text")
-        .attrs({x:641, y:314, "font-size":10, "transform":"translate(0,0)", "text-anchor":"end", "class":"wm-squiglink-address"})
-        .text("squig.link/lab/harutohiroki");
+        .attrs({x:641, y:314, "font-size":10, "transform":"translate(0,0)", "text-anchor":"end", "class":"wm-squiglink-address", "style": "filter: var(--wiggle-filter);"})
+        .text("squig.link/lab/nota");
 }
 
 
@@ -248,18 +249,18 @@ setupGraphAnalytics();
 
 
 // If alt_header is enabled, these are the items added to the header
-let headerLogoText = "HarutoHiroki",
-    headerLogoImgUrl = "assets/images/haruto.svg",
+let headerLogoText = "Nota",
+    headerLogoImgUrl = "assets/images/nota.png",
     headerLinks = [
-    {
-        name: "Sample",
-        url: "https://sample.com"
-    },
-    {
-        name: "Sample External",
-        url: "https://sample.com",
-        external: true
-    }
+    // {
+    //     name: "Sample",
+    //     url: "https://sample.com"
+    // },
+    // {
+    //     name: "Sample External",
+    //     url: "https://sample.com",
+    //     external: true
+    // }
 ];
 
 // Source: https://www.teachmeaudio.com/mixing/techniques/audio-spectrum
