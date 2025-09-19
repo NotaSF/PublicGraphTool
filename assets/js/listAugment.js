@@ -21,7 +21,7 @@ function augmentInit() {
             width: calc(350px - 94px);
             margin-top: -6px;
             margin-bottom: 6px;
-            border: 1px solid var(--font-color-primary);
+            border: 1px solid var(--accent-color);
             border-top: 6px solid var(--font-color-primary);
             border-top: none;
             border-radius: 0 0 6px 6px;
@@ -78,7 +78,7 @@ function augmentInit() {
 
             padding: 11px 11px;
 
-            background-color: var(--font-color-primary);
+            background-color: var(--accent-color);
             color: var(--font-color-secondary);
         }
 
@@ -235,7 +235,7 @@ function augmentInit() {
         }
 
         div.scroll div.phone-item[style*="border"] {
-            background-color: var(--font-color-primary) !important;
+            background-color: var(--accent-color) !important;
         }
 
         div.scroll div.phone-item[style*="border"][data-score="5"] div.phone-item-add span.remove:before {
